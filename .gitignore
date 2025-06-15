@@ -1,0 +1,14 @@
+# Ignorar arquivos de configuração local
+# config/*.php
+
+# Ignorar dependências do Composer
+#/vendor/
+
+# Ignorar hash do private
+private/gerar_hash.php
+
+# Ignorar tudo dentro da pasta private
+storage/*
+
+# Manter a pasta 
+!storage/.gitkeep

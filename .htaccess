@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Redireciona qualquer página PHP da pasta "routes" para a URL sem "routes"
+RewriteRule ^([a-zA-Z0-9_-]+)$ routes/$1.php [L]
+

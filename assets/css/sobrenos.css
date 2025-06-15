@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Varela+Round&display=swap');
+
+html, body {
+    height: auto;
+    margin: 0;
+    font-family: "Varela Round", sans-serif;
+    overflow-x: hidden;
+    background-image: url(../img/bg-cadastro.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow: auto;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); 
+    z-index: 0;
+}
+
+main, .sobre-nos, .sobre-nos-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Wrapper do conteúdo */
+.sobre-nos-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Card principal */
+.sobre-nos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px;
+    max-width: 1200px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* Imagem lateral */
+.sobre-nos-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre-nos-imagem img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Texto principal */
+.sobre-nos-texto {
+    flex: 2;
+    font-size: 16px;
+    color: #333;
+    text-align: justify;
+}
+
+.sobre-nos-texto h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Equipe */
+.equipe-texto {
+    margin-top: 40px;
+    font-size: 16px;
+    color: #333;
+}
+
+.equipe-texto h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.equipe-texto h4 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-weight: 900;
+}
+
+.equipe-texto p {
+    text-align: center;
+    margin: 4px 0;
+}
+
+/* Logo da equipe */
+.equipe-logo {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.equipe-logo img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #0e6b8c;
+    font-weight: 500;
+}
+
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sobre-nos {
+    animation: fadeSlideIn 1s ease-out;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .sobre-nos {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .sobre-nos-imagem img {
+        max-width: 250px;
+    }
+
+    .sobre-nos-texto h1,
+    .equipe-texto h1 {
+        font-size: 22px;
+    }
+
+    .sobre-nos-texto,
+    .equipe-texto {
+        font-size: 15px;
+    }
+
+    .equipe-logo img {
+        max-width: 140px;
+    }
+}
+

@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html, body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: "Varela Round", sans-serif !important;
+
+}
+
+
+/* Animação Fade-In */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cadastro form {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; 
+}
+
+/* Fundo e container */
+.cadastro {
+    background-image: url("../img/bg-cadastro.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+    position: relative;
+    overflow: visible; 
+}
+
+.cadastro::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+
+}
+
+
+/* Formulário */
+.cadastro form {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px 30px 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    font-family: "Varela Round", sans-serif;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin: auto;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1; 
+}
+
+
+
+.cadastro form:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Título */
+.cadastro form h1 {
+    text-align: center;
+    margin: 0 0 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Labels */
+.cadastro label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Inputs */
+.cadastro form input,
+.cadastro form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 22px;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: "Varela Round", sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.cadastro form input:focus,
+.cadastro form select:focus {
+    outline: none;
+    border-color: #141414;
+    box-shadow: 0 0 6px rgba(48, 48, 48, 0.329);
+}
+
+/* Botão */
+.cadastro button[type="submit"] {
+    background-color: #3f8f29;
+    color: #fff;
+    border: none;
+    padding: 15px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: "Varela Round", sans-serif;
+
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+.cadastro button[type="submit"]:hover {
+    background-color: #2d661d;
+    box-shadow: 0 6px 14px rgba(45, 102, 29, 0.7);
+    outline: none;
+}
+
+
+.input-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.small {
+    flex: 0 0 100px;
+}
+
+#erroHorario{
+    color:#ba1e1e;
+    display: none;
+}
+
+/* Estilo do Select2 */
+.select2-container--default .select2-selection--multiple {
+    border-radius: 8px !important;
+    border: 1.8px solid #ccc !important;
+    padding: 6px 10px !important;
+    font-family: "Varela Round", sans-serif;
+    font-size: 1rem !important;
+    min-height: 44px !important;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: #141414;
+    box-shadow: 0 0 6px rgba(90, 90, 90, 0.329) ! important;
+    
+}
+
+.select2-container--default .select2-results__option--selected {
+    background-color: #7e7e7e60 !important;
+}
+
+
+#back-btn {
+    background-color: #ba1e1e;
+    color: #ffffff;
+    border: none;
+    padding: 15px 0px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: "Varela Round", sans-serif;
+
+}
+
+#back-btn:hover {
+    background-color: #910101;
+}
+
+#divVoltar{
+    display: flex;
+    justify-content: center;
+}
+
+#divVoltar a {
+    width: 100%;
+}
+
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    border: 1.8px solid #8a8a8a;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.custom-file-upload:hover {
+    border-color: #141414;
+    box-shadow: 0 0 6px rgba(48, 48, 48, 0.33);
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+#preview-container {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#preview-image {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+#obs{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#obs span{
+    font-family: "Varela Round", sans-serif;
+    color: #34495e;  
+    font-style: italic;  
+    font-size: 0.9rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="time"] {
+    width: 120px;
+}
+
+.dia-bloco {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.horario-bloco {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+}
+
+.grupo-dias,
+.grupo-horas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grupo-dias label,
+.grupo-horas label {
+    white-space: nowrap;
+    font-weight: 500;
+    color: #333;
+}
+
+.btn-remover {
+    padding: 8px 12px;
+    background-color: #c52222;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-remover:hover {
+    background-color: #9c2f23;
+}
+
+/*BOTÃO ADD DIA*/
+.btn-adicionar {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background-color: #3f8f29;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-adicionar:hover {
+    background-color:  #2d661d;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cadastro form {
+        padding: 30px 20px 20px;
+        max-width: 100%;
+    }
+    
+    .cadastro form h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .cadastro form input,
+    .cadastro form select {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+        margin-bottom: 18px;
+    }
+    
+    .cadastro button[type="submit"] {
+        font-size: 1rem;
+        padding: 12px 0;
+        margin-top: 15px;
+    }
+}
+
+

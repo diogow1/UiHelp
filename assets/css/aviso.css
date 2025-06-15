@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Varela+Round&display=swap');
+
+body {
+    position: relative;
+    background-image: url("../img/bg-cadastro.png");
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rubik', 'Varela Round', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 1rem;
+    color: #333;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55); 
+    z-index: -1;
+}
+
+#box {
+    max-width: 460px;
+    width: 100%;
+    padding: 40px 30px 35px 30px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#divImg {
+    margin-bottom: 25px;
+}
+
+#divImg img {
+    width: 140px;
+    height: 130px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+#divTitulo h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+#divDescricao span {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#divDescricao a {
+    color: #3f8f29;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#divDescricao a:hover {
+    color: #2d661d;
+    text-decoration: underline;
+}
+
+#divVoltar {
+    display: flex;
+    justify-content: center;
+}
+
+#divVoltar button {
+    background-color: #3f8f29;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(47, 109, 26, 0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#divVoltar button:hover {
+    background-color: #ba1e1e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(27, 72, 7, 0.6);
+}
+
+/* Animação para o título */
+@keyframes fadeSlideIn {
+0% {
+    opacity: 0;
+    transform: translateY(15px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+#divTitulo h1 {
+    animation: fadeSlideIn 0.8s ease forwards;
+}
+
+/* Animação fade-in com slide para o card */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    #box {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0; /* inicia invisível até a animação rodar */
+}
+
+
+
+@media (max-width: 520px) {
+    #box {
+        padding: 30px 20px 25px 20px;
+    }
+    #divTitulo h1 {
+        font-size: 2.2rem;
+    }
+    #divDescricao span {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    #divVoltar button {
+        padding: 12px 28px;
+        font-size: 1rem;
+    }
+}

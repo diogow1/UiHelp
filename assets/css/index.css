@@ -1,0 +1,546 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Varela+Round&display=swap');
+
+
+body{
+    font-family: "Varela Round", sans-serif; 
+}
+
+
+/* Estilos do menu lateral */
+.menu {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    padding-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.menu.open { /* *//* */
+    left: 0;
+}
+
+.menu.closed { /* *//* */
+    left: -300px;
+}
+
+/* Ícone de menu*/
+.iconLogo{
+    font-size: 30px;
+    position: fixed;
+    top: 30px;
+    left: 100px;
+    z-index: 1002;
+}
+
+#iconLogoImg {
+    height: 120px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 20%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo do menu */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.menu-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Filtros */
+.filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    margin-top: 55%;
+}
+
+/* Remove as bolinhas dos radios */
+.filter-option input[type="radio"],
+.filter-residuo input[type="radio"] {
+    display: none;
+}
+
+/* Estilo das opções */
+.filter-option, .filter-residuo {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    font-size: 18px;
+    background-color: #dbdbdb;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+    text-align: center;
+}
+
+/* Removendo margem dos inputs, que já estão invisíveis */
+.filter-residuo input[type="radio"], .filter-option input[type="radio"] {
+    margin-right: 0;
+}
+
+
+.filter-residuo:hover {
+    background-color: #3f8f29;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+    background-color: #ba1e1e;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#filter-servico-div{
+    width: 100%;
+}
+
+#filter-servico-name{
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.filter-servico {
+    display: inline-block;
+    font-family: "Varela Round", sans-serif; 
+    font-size: 16px;
+}
+
+.filter-servico select {
+    appearance: none;
+    background-color: #ffffff;
+    border: 1px solid #818080;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    min-width: 240px;
+    margin-bottom: 10px;
+
+    /* Ícone customizado da setinha do select */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
+.filter-servico select:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    outline: none;
+}
+
+.filter-servico option[marked] {
+    font-weight: bold;
+}
+
+.filtro-ativo {
+    background-color: #ba1e1e;
+    color: #ffffff;
+    transform: scale(1.05) !important;
+}
+
+.filtro-verde {
+    background-color: #3f8f29;
+    color: #ffffff;
+    transform: scale(1.05) !important;
+}
+
+
+
+/* Botão de inscrição */
+.inscricao {
+    margin-top: 20px;
+}
+
+.inscrever-btn {
+    display: inline-block;
+    background-color: #3f8f29;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.inscrever-btn:hover {
+    background-color: #ba1e1e;
+}
+
+/* Seção de contato */
+.contato {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.contato p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+}
+
+/* Seção de sobre no menu */
+
+.sobre{
+    color: #333;
+    padding-bottom: 20px;
+    
+}
+
+.sobre a{
+    color: inherit;        
+    text-decoration: none; 
+}
+
+/* Animação do menu */
+.menu.open {
+    left: 0;
+}
+
+.menu.closed {
+    left: -300px;
+}
+
+/* abertura da imagem da instituição */
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+.overlay.open {
+    display: flex;
+}
+
+.overlay-content img {
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/*----------------------POP-UP----------------------*/
+
+
+.popup {
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+    color: #333;
+    line-height: 1.5;
+    font-family: "Varela Round", sans-serif !important;
+}
+
+.leaflet-popup-content {
+    width: 400px !important;  /* ou 600px, como quiser */
+    max-width: 90vw;
+}
+
+.popup h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    color: #333;
+    border-bottom: 2px solid #3f8f29;
+    padding-bottom: 6px;
+}
+
+.popup p {
+    margin: 8px 0;
+    font-size: 0.85rem;
+}
+
+.popup p b {
+    color: #333;
+}
+
+.popup ul {
+    padding-left: 18px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    list-style-type: disc;
+    color: #333;
+}
+
+.popup ul li {
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+}
+
+.contatos-mapa {
+    display: flex;
+    gap: 15px;
+    margin: 12px 0 18px 0;
+}
+
+
+.popup-image {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease;
+}
+
+.popup-image:hover {
+    transform: scale(1.05);
+}
+
+.contatos-mapa a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+.contatos-mapa a img {
+    width: 40px !important;
+    height: 40px !important;
+    margin: 8px;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+
+.contatos-mapa a:hover img {
+    filter: brightness(0.4);;
+}
+
+
+
+.popup {
+    font-family: "Varela Round", sans-serif !important;
+}
+
+.popup .instagram{
+    display: block;
+    margin-bottom: 10px;
+} 
+
+.popup .contatos-mapa{
+    display: flex;
+}
+
+.popup .contatos-mapa .whatsapp{
+    margin-right: 15px;
+}
+
+@media (max-width: 420px) {
+    .popup {
+        max-width: 100%;
+    }
+    .popup h3 {
+        font-size: 1.3rem;
+    }
+
+    .popup-image {
+        max-width: 120px;
+    }
+}
+
+/*LOGOS DA FMP E DA PREFEITURA*/
+#logo-fmp{
+    position: absolute;
+    bottom: 20px;  
+    right: 120px;  
+    width: 100px;  
+    z-index: 1000;  
+}
+
+#logo-fmp img{
+    height: 75px;
+}
+
+#logo-palhoca{
+    position: absolute;
+    bottom: 110px;  
+    right: 120px;  
+    width: 100px;  
+    z-index: 1000; 
+}
+
+#logo-palhoca img{
+    height: 50px;
+}
+
+
+/*ANIMAÇÃO DE FADE NAS LOGOS*/
+#logo-palhoca img, #logo-fmp img {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+#logo-palhoca img:hover,  #logo-fmp img:hover {
+    opacity: 1; 
+}
+
+
+/*ANIMAÇÕES*/
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.iconLogo{
+    animation: fadeSlideIn 1s ease-out;
+}
+
+@keyframes fadeSlideInPopup {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.popup, .leaflet-popup-content-wrapper{
+    animation: fadeSlideInPopup 0.5s ease-in-out;
+}
+
+
+
+
+/*ANIMAÇÃO DOS MARKERS*/
+
+@keyframes dropBounce {
+    0% {
+        transform: translateY(-100px) scale(0.8);
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(-5px) scale(0.95);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.marker-inner {
+    animation: dropBounce 0.6s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+
+}
+
+
+
+/*RESPONSIVIDADE*/
+@media (max-width: 600px) {
+    .leaflet-popup-content{
+        max-width: 250px;
+    }
+
+    .filter-servico select {
+        font-size: 18px;   
+
+    }
+}
+
+@media (max-width: 450px){
+    #logo-fmp{
+        position: absolute;
+        bottom: 20px;  
+        right: 50px;  
+        width: 100px;  
+        z-index: 1000;  
+    }
+
+    #logo-fmp img{
+        height: 55px;
+    }
+
+    #logo-palhoca{
+        position: absolute;
+        bottom: 80px;  
+        right: 50px;  
+        width: 100px;  
+        z-index: 1000; 
+    }
+
+    #logo-palhoca img{
+        height: 35px;
+    }
+
+}
+
+

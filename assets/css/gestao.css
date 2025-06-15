@@ -1,0 +1,314 @@
+/*--------------- ADMIN -----------------*/
+
+/* Estilos gerais do body */
+.body-admin {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+/* Título da página */
+.titulo-admin {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    color: #333;
+}
+
+/* Estilo dos botões de navegação */
+.selecao-tabelas {
+    margin-bottom: 20px;
+}
+
+.selecao-tabelas button {
+    background-color: #008304;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.selecao-tabelas button:hover {
+    background-color: #005e05;
+    transform: scale(1.05);
+}
+
+/* Tabela */
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.centralizado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.tabela h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%; /* Ajusta a tabela para ocupar 100% da largura do container */
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+    display: block; /* Garante que a tabela possa rolar em telas menores */
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    table {
+        display: block; /* Permite o scroll horizontal */
+        overflow-x: auto;
+        white-space: nowrap; /* Evita quebra de linhas dentro das células */
+    }
+
+    th, td {
+        text-align: left; /* Melhora a leitura em tabelas com scroll horizontal */
+        padding: 8px;
+    }
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    word-wrap: break-word; /* Quebra automaticamente palavras longas */
+    max-width: 200px; /* Limita a largura das células em telas maiores */
+}
+
+td img {
+    max-width: 50px; /* Reduz o tamanho máximo das imagens */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* Centralizar botões em telas menores */
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+/* Estilos de linhas alternadas na tabela */
+tr:nth-child(even) td {
+    background-color: #f4f6f9;
+}
+
+/* botao de logout da página de gestao */
+
+.body-admin #logout {
+    margin: 0;
+    padding: 0;
+    position: fixed; 
+    top: 4rem; 
+    left: 4.5rem;
+}
+
+.body-admin #logout .logout-button {
+    background-color: #ba1e1e;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.body-admin #logout .logout-button:hover {
+    background-color: rgb(155, 1, 1);
+}
+
+/* Botões de Ações */
+
+.excluir-instituicao{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+button.excluir-instituicao{
+    background-color: #dc3545;
+}
+
+button.excluir-instituicao:hover {
+    background-color: #c82333;
+}
+
+button.aprovar-instituicao,
+button.reprovar-instituicao {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+button.aprovar-instituicao {
+    background-color: #008b4a;
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+button.reprovar-instituicao {
+    background-color: #dc3545;
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 2px;
+}
+
+button.aprovar-instituicao:hover {
+    background-color: #006b36;
+}
+
+button.reprovar-instituicao:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para o Modal */
+#modalForm {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.modal h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.modal input {
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal button {
+    padding: 0.7rem;
+    background-color: #008b4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #006a37;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;      
+    right: 10px;    
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Modal para imagem das tabelas */
+.modal-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-imagem img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.img-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.img-close:hover {
+    color: #f44336;
+}
+
