@@ -7,7 +7,7 @@
 # Ignorar hash do private
 private/gerar_hash.php
 
-# Ignorar tudo dentro da pasta private
+# Ignorar tudo dentro da pasta storage
 storage/*
 
 # Manter a pasta 
