@@ -1,4 +1,5 @@
 <?php
+namespace App\Enums;
 
 class TipoServico {
     public const COLETA = 'coleta';

@@ -1,5 +1,13 @@
 RewriteEngine On
 RewriteBase /api/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+
+# Permite arquivos e pastas reais
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Evita redirecionamento da pasta swagger
+RewriteRule ^swagger/.*$ - [L]
+
+# Redireciona todo o resto para index.php
 RewriteRule ^ index.php [QSA,L]

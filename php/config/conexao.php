@@ -1,9 +1,7 @@
 <?php
 $local = in_array($_SERVER['SERVER_NAME'], ['localhost', '127.0.0.1']);
 
-// Configurações diferentes para local e produção
 if ($local) {
-    // Ambiente local (XAMPP, Laragon, etc.)
     $servername = "localhost";
     $username = "root";        
     $password = "";            

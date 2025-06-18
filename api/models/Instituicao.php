@@ -1,7 +1,21 @@
 <?php
-
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\TipoServico;
+use InvalidArgumentException;
 
+/**
+ * @OA\Schema(
+ *     schema="Instituicao",
+ *     required={"id", "nome"},
+ *     @OA\Property(property="id", type="integer", example=1),
+ *     @OA\Property(property="nome", type="string", example="Casa Verde"),
+ *     @OA\Property(property="endereco", type="string", example="Rua A, 123"),
+ *     @OA\Property(property="usuario_id", type="integer", example=2),
+ *     @OA\Property(property="tipos_coleta", type="array", @OA\Items(ref="#/components/schemas/TipoColeta")),
+ *     @OA\Property(property="horarios_funcionamento", type="array", @OA\Items(type="string"))
+ * )
+ */
 class Instituicao extends Model {
     protected $table = 'instituicoes';
     protected $primaryKey = 'id_instituicao';

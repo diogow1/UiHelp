@@ -63,7 +63,7 @@
 
             <div class="input-group small">
                 <label for="numero">Nº * </label>
-                <input type="number" name="numero" id="numero" placeholder="Número" required>
+                <input type="number" name="numero" id="numero" placeholder="Nº" required>
             </div>
         </div>
 

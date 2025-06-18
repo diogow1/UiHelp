@@ -12,3 +12,9 @@ storage/*
 
 # Manter a pasta 
 !storage/.gitkeep
+
+# Ignorar tudo dentro da pasta uploads
+storage/uploads/*
+
+# Manter a pasta 
+!storage/uploads/.gitkeep

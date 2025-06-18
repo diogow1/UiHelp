@@ -5,16 +5,16 @@
 header('Content-Type: application/json');
 
 require_once 'config/db.php';
-
+require_once __DIR__ . '/vendor/autoload.php';
 // models e controllers
-require_once __DIR__ . '/models/Instituicao.php';
-require_once __DIR__ . '/models/Usuario.php';
-require_once __DIR__ . '/models/TipoColeta.php';
-require_once __DIR__ . '/models/HorariosFuncionamento.php';
+use App\Models\Instituicao;
+use App\Models\Usuario;
+use App\Models\TipoColeta;
+use App\Models\HorariosFuncionamento;
 
-require_once __DIR__ . '/controllers/InstituicaoController.php';
-require_once __DIR__ . '/controllers/UsuarioController.php';
-require_once __DIR__ . '/controllers/TipoColetaController.php';
+use App\Controllers\InstituicaoController;
+use App\Controllers\UsuarioController;
+use App\Controllers\TipoColetaController;
 
 
 require_once __DIR__ . '/enums/TipoServico.php';

@@ -1,0 +1,206 @@
+openapi: 3.0.0
+info:
+  title: 'UIHELP API'
+  description: 'UIHELP API'
+  version: 1.0.0
+paths:
+  /api/instituicoes:
+    get:
+      tags:
+        - Instituições
+      summary: 'Listar todas as instituições'
+      operationId: 2640d0ca30d202d162c01a19797cd972
+      responses:
+        '200':
+          description: 'Lista de instituições'
+  '/api/instituicoes/{id}':
+    get:
+      tags:
+        - Instituições
+      summary: 'Obter uma instituição pelo ID'
+      operationId: 62a2b190ddfd123716a36dde2689889a
+      parameters:
+        -
+          name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Dados da instituição'
+        '404':
+          description: 'Instituição não encontrada'
+  /api/tipos-coleta:
+    get:
+      tags:
+        - 'Tipos de Coleta'
+      summary: 'Listar todos os tipos de coleta'
+      operationId: b7f3f43bad8706770c97e3eec670579b
+      responses:
+        '200':
+          description: 'Lista de tipos de coleta'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TipoColeta'
+  '/api/tipos-coleta/{id}':
+    get:
+      tags:
+        - 'Tipos de Coleta'
+      summary: 'Obter um tipo de coleta pelo ID'
+      operationId: 457cb9b55e9da807f2b20dc1e320b9f7
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do tipo de coleta'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Dados do tipo de coleta'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TipoColeta'
+        '404':
+          description: 'Tipo de coleta não encontrado'
+  /api/usuarios:
+    get:
+      tags:
+        - Usuários
+      summary: 'Listar todos os usuários'
+      operationId: db44a2dae9dc60628dfe0c3867be955f
+      responses:
+        '200':
+          description: 'Lista de usuários'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+  '/api/usuarios/{id}':
+    get:
+      tags:
+        - Usuários
+      summary: 'Obter um usuário pelo ID'
+      operationId: f68b661cb168bff7d47a927849208271
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID do usuário'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Dados do usuário'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        '404':
+          description: 'Usuário não encontrado'
+components:
+  schemas:
+    HorariosFuncionamento:
+      required:
+        - id
+        - id_instituicao
+        - dia_inicio
+        - dia_fim
+        - abertura
+        - fechamento
+      properties:
+        id:
+          type: integer
+          example: 1
+        id_instituicao:
+          type: integer
+          example: 1
+        dia_inicio:
+          type: string
+          example: Segunda-feira
+        dia_fim:
+          type: string
+          example: Sexta-feira
+        abertura:
+          type: string
+          format: time
+          example: '08:00'
+        fechamento:
+          type: string
+          format: time
+          example: '18:00'
+      type: object
+    Instituicao:
+      required:
+        - id
+        - nome
+      properties:
+        id:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: 'Casa Verde'
+        endereco:
+          type: string
+          example: 'Rua A, 123'
+        usuario_id:
+          type: integer
+          example: 2
+        tipos_coleta:
+          type: array
+          items:
+            $ref: '#/components/schemas/TipoColeta'
+        horarios_funcionamento:
+          type: array
+          items:
+            type: string
+      type: object
+    TipoColeta:
+      required:
+        - id_tipo_coleta
+        - nome
+      properties:
+        id_tipo_coleta:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: Papel
+      type: object
+    Usuario:
+      required:
+        - id_usuario
+        - nome
+        - email
+      properties:
+        id_usuario:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: 'João Silva'
+        email:
+          type: string
+          format: email
+          example: joao@email.com
+      type: object
+tags:
+  -
+    name: Instituições
+    description: 'Operações relacionadas às instituições'
+  -
+    name: 'Tipos de Coleta'
+    description: 'Operações relacionadas aos tipos de coleta'
+  -
+    name: Usuários
+    description: 'Operações relacionadas aos usuários'

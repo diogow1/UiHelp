@@ -3,6 +3,7 @@
 body {
     position: relative;
     background-image: url("../img/bg-cadastro.png");
+    backdrop-filter: blur(2px);
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,6 +17,8 @@ body {
     margin: 0;
     padding: 0 1rem;
     color: #333;
+    width: auto;
+    height: auto;
 }
 
 body::before {
@@ -24,6 +27,7 @@ body::before {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.55); 
     z-index: -1;
+    
 }
 
 #box {
@@ -126,9 +130,9 @@ body::before {
         opacity: 1;
         transform: translateY(0);
     }
-    }
+}
 
-    #box {
+#box {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0; /* inicia invisível até a animação rodar */
 }
