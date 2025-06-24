@@ -2,16 +2,10 @@
 # config/*.php
 
 # Ignorar dependências do Composer
-#/vendor/
+# /vendor/
 
 # Ignorar hash do private
 private/gerar_hash.php
-
-# Ignorar tudo dentro da pasta storage
-storage/*
-
-# Manter a pasta 
-!storage/.gitkeep
 
 # Ignorar tudo dentro da pasta uploads
 storage/uploads/*

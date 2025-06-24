@@ -37,12 +37,22 @@ $id = $partes[1] ?? null;
 switch ($recurso) {
     case 'instituicoes':
         $controller = new InstituicaoController();
-        if ($id) {
-            $controller->show($id);
-        } else {
+
+        // Verifica se é uma requisição por ID
+        if (isset($partes[1]) && is_numeric($partes[1])) {
+            $controller->show($partes[1]);
+
+        // Se não tem nenhum segundo parâmetro ou só query params, chama index
+        } elseif (!isset($partes[1]) || $partes[1] === '') {
             $controller->index();
+
+        // Se tem algo inválido na URL
+        } else {
+            http_response_code(404);
+            echo json_encode(['erro' => 'Rota não encontrada'], JSON_UNESCAPED_UNICODE);
         }
         break;
+
 
     case 'usuarios':
         $controller = new UsuarioController();

@@ -1,18 +1,57 @@
 openapi: 3.0.0
 info:
   title: 'UIHELP API'
-  description: 'Documentação da API do UIHELP gerada pelo Swagger.'
-  version: 1.0.0
+  description: 'UIHELP API'
+  version: 1.0.2
 paths:
   /api/instituicoes:
     get:
       tags:
         - Instituições
-      summary: 'Listar todas as instituições'
+      summary: 'Listar todas as instituições ou filtrar por UF, cidade, bairro e tipo de coleta'
       operationId: 2640d0ca30d202d162c01a19797cd972
+      parameters:
+        -
+          name: uf
+          in: query
+          description: 'Sigla do estado (UF)'
+          required: false
+          schema:
+            type: string
+            example: SC
+        -
+          name: cidade
+          in: query
+          description: 'Nome da cidade'
+          required: false
+          schema:
+            type: string
+            example: Palhoça
+        -
+          name: bairro
+          in: query
+          description: 'Nome do bairro'
+          required: false
+          schema:
+            type: string
+            example: 'Ponte do Imaruim'
+        -
+          name: tipo_coleta
+          in: query
+          description: 'Um ou mais tipos de coleta (separados por vírgula)'
+          required: false
+          schema:
+            type: string
+            example: 'Roupas,Alimentos'
       responses:
         '200':
-          description: 'Lista de instituições'
+          description: 'Lista de instituições filtradas ou completas'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Instituicao'
   '/api/instituicoes/{id}':
     get:
       tags:
@@ -23,12 +62,18 @@ paths:
         -
           name: id
           in: path
+          description: 'ID da instituição'
           required: true
           schema:
             type: integer
+            example: 1
       responses:
         '200':
           description: 'Dados da instituição'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instituicao'
         '404':
           description: 'Instituição não encontrada'
   /api/tipos-coleta:
@@ -69,6 +114,12 @@ paths:
                 $ref: '#/components/schemas/TipoColeta'
         '404':
           description: 'Tipo de coleta não encontrado'
+          content:
+            application/json:
+              schema:
+                properties:
+                  erro: { type: string, example: 'Tipo de coleta não encontrado' }
+                type: object
   /api/usuarios:
     get:
       tags:
@@ -107,6 +158,12 @@ paths:
                 $ref: '#/components/schemas/Usuario'
         '404':
           description: 'Usuário não encontrado'
+          content:
+            application/json:
+              schema:
+                properties:
+                  erro: { type: string, example: 'Usuário não encontrado' }
+                type: object
 components:
   schemas:
     HorariosFuncionamento:
@@ -149,13 +206,24 @@ components:
           example: 1
         nome:
           type: string
-          example: 'Casa Verde'
-        endereco:
+          example: 'Faculdade Municipal de Palhoça'
+        uf:
           type: string
-          example: 'Rua A, 123'
+          example: SC
+        cidade:
+          type: string
+          example: Palhoça
+        bairro:
+          type: string
+          example: Centro
+        tipo_servico:
+          type: string
+          example: Coleta
         usuario_id:
           type: integer
           example: 2
+        usuario:
+          $ref: '#/components/schemas/Usuario'
         tipos_coleta:
           type: array
           items:
@@ -163,7 +231,7 @@ components:
         horarios_funcionamento:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/HorariosFuncionamento'
       type: object
     TipoColeta:
       required:
@@ -175,7 +243,10 @@ components:
           example: 1
         nome:
           type: string
-          example: Papel
+          example: Alimento
+        descricao:
+          type: string
+          example: 'Qualquer tipo de vestimenta'
       type: object
     Usuario:
       required:
@@ -188,16 +259,16 @@ components:
           example: 1
         nome:
           type: string
-          example: 'João Silva'
+          example: Usuario
         email:
           type: string
           format: email
-          example: joao@email.com
+          example: usuario@email.com
       type: object
 tags:
   -
     name: Instituições
-    description: 'Operações relacionadas às instituições'
+    description: 'Operações de instituições'
   -
     name: 'Tipos de Coleta'
     description: 'Operações relacionadas aos tipos de coleta'

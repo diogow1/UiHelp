@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+
 use App\Models\Usuario;
 
 /**
@@ -9,7 +10,8 @@ use App\Models\Usuario;
  * )
  */
 class UsuarioController {
-        /**
+
+    /**
      * @OA\Get(
      *     path="/api/usuarios",
      *     tags={"Usuários"},
@@ -17,16 +19,20 @@ class UsuarioController {
      *     @OA\Response(
      *         response=200,
      *         description="Lista de usuários",
-     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Usuario"))
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/Usuario")
+     *         )
      *     )
      * )
      */
     public function index() {
+        header('Content-Type: application/json; charset=utf-8');
         $usuarios = Usuario::all();
-        header('Content-Type: application/json');
-        echo json_encode($usuarios);
+        echo json_encode($usuarios, JSON_UNESCAPED_UNICODE);
     }
-        /**
+
+    /**
      * @OA\Get(
      *     path="/api/usuarios/{id}",
      *     tags={"Usuários"},
@@ -45,15 +51,18 @@ class UsuarioController {
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="Usuário não encontrado"
+     *         description="Usuário não encontrado",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="erro", type="string", example="Usuário não encontrado")
+     *         )
      *     )
      * )
      */
     public function show($id) {
+        header('Content-Type: application/json; charset=utf-8');
         $usuario = Usuario::find($id);
-        header('Content-Type: application/json');
         if ($usuario) {
-            echo json_encode($usuario);
+            echo json_encode($usuario, JSON_UNESCAPED_UNICODE);
         } else {
             http_response_code(404);
             echo json_encode(['erro' => 'Usuário não encontrado'], JSON_UNESCAPED_UNICODE);
